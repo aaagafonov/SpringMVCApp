@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Все документы</title>
+</head>
+<body>
+<a href="/documents/new">Загрузить документ</a>
+<br/>
+<br/>
+<div th:each="document : ${documents}">
+    <a th:href="@{/documents/{id}(id=${document.getDocumentId()})}" th:text="${document.getDocumentName()}">name</a>
+</div>
+</body>
+</html>

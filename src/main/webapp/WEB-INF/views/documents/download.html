@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Загрузка документа</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/documents/{id}/download(id=${document.getDocumentId()})}" th:object="${document}">
+  <label for="tempPath">Директория сохранения документа: </label>
+  <input type="text" th:field="*{tempPath}" id="tempPath"/>
+  <br/>
+  <input type="submit" value="Скачать"/>
+</form>
+</body>
+</html>

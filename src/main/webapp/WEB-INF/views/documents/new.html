@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Новый документ</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/documents}" th:object="${document}">
+    <label for="documentName">Название документа: </label>
+    <input type="text" th:field="*{documentName}" id="documentName"/>
+    <div style="color:red" th:if="${#fields.hasErrors('documentName')}" th:errors="*{documentName}">Name error</div>
+    <br/>
+    <label for="author">Автор: </label>
+    <input type="text" th:field="*{author}" id="author"/>
+    <div style="color:red" th:if="${#fields.hasErrors('author')}" th:errors="*{author}">Author error</div>
+    <br/>
+    <label for="documentIntroNumber">Входящий номер документа: </label>
+    <input type="text" th:field="*{regCard.documentIntroNumber}" id="documentIntroNumber"/>
+    <br/>
+    <label for="tempPath">Путь к файлу: </label>
+    <input type="text" th:field="*{tempPath}" id="tempPath"/>
+    <br/>
+    <input type="submit" value="Загрузить"/>
+</form>
+</body>
+</html>

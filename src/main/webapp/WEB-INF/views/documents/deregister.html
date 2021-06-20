@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Снятие с учета</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/documents/{id}(id=${document.getDocumentId()})}" th:object="${document}">
+  <label for="documentExternNumber">Исходящий номер документа: </label>
+  <input type="text" th:field="*{regCard.documentExternNumber}" id="documentExternNumber"/>
+  <br/>
+  <input type="submit" value="Снять с учета"/>
+</form>
+</body>
+</html>

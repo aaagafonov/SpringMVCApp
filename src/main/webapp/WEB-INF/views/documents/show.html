@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Документ</title>
+</head>
+<body>
+Название документа: <label th:text="${document.getDocumentName()}">VALUE</label><br/>
+Автор: <label th:text="${document.getAuthor()}">VALUE</label><br/>
+Входящий номер: <label th:text="${document.getRegCard().getDocumentIntroNumber()}">VALUE</label><br/>
+Дата поступления: <label th:text="${document.getRegCard().getDateIntro()}">VALUE</label><br/>
+Исходящий номер: <label th:text="${document.getRegCard().getDocumentExternNumber()}">VALUE</label><br/>
+Дата снятия с учета: <label th:text="${document.getRegCard().getDateExtern()}">VALUE</label><br/><br/>
+<a th:href="@{/documents/{id}/deregister(id=${document.getDocumentId()})}">Снять документ с учета</a>
+<br/>
+<a th:href="@{/documents/{id}/download(id=${document.getDocumentId()})}">Скачать документ</a>
+</body>
+</html>
