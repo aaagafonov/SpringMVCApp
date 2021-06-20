@@ -24,6 +24,8 @@ public class UserDao {
         Query query = entityManager.createNamedQuery("User.findById");
         query.setParameter("userId", userId);
         List<User> user = query.getResultList();
+        if (user.isEmpty())
+            return null;
         return user.get(0);
     }
 
@@ -31,6 +33,8 @@ public class UserDao {
         Query query = entityManager.createNamedQuery("User.findByUsername");
         query.setParameter("username", username);
         List<User> user = query.getResultList();
+        if (user.isEmpty())
+            return null;
         return user.get(0);
     }
 

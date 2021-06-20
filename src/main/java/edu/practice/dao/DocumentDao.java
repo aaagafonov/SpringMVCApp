@@ -29,6 +29,8 @@ public class DocumentDao {
         Query query = entityManager.createNamedQuery("Document.findById");
         query.setParameter("documentId", documentId);
         List<Document> document = query.getResultList();
+        if (document.isEmpty())
+            return null;
         return document.get(0);
     }
 
